@@ -3,7 +3,6 @@ import React, { useState, useEffect } from "react";
 import { StyleSheet, Text, View, SafeAreaView, FlatList, ActivityIndicator } from 'react-native';
 
 const apiURL = "http://localhost:3000";
-// const apiURL = "https://reactnative.dev/movies.json"
 
 
 const axios = require('axios');
