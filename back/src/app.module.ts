@@ -16,15 +16,15 @@ import { PartieusersModule } from './partieusers/partieusers.module';
 import { ReglesjeuxModule } from './reglesjeux/reglesjeux.module';
 import { ScoresModule } from './scores/scores.module';
 import { TypesModule } from './types/types.module';
-import {Avatar} from "./avatars/model/entities/avatar.entity";
-import {Difficulte} from "./difficulte/model/entities/difficulte.entity";
-import {Jeux} from "./jeux/model/entities/jeux.entity";
-import {Listeamis} from "./listeamis/model/entities/listeami.entity";
-import {Partie} from "./parties/model/entities/party.entity";
-import {Partieuser} from "./partieusers/model/entities/partieuser.entity";
-import {Reglesjeux} from "./reglesjeux/model/entities/reglesjeux.entity";
-import {Score} from "./scores/model/entities/score.entity";
-import {Type} from "./types/model/entities/type.entity";
+import { Avatar } from "./avatars/model/entities/avatar.entity";
+import { Difficulte } from "./difficulte/model/entities/difficulte.entity";
+import { Jeux } from "./jeux/model/entities/jeux.entity";
+import { Listeamis } from "./listeamis/model/entities/listeami.entity";
+import { Partie } from "./parties/model/entities/party.entity";
+import { Partieuser } from "./partieusers/model/entities/partieuser.entity";
+import { Reglesjeux } from "./reglesjeux/model/entities/reglesjeux.entity";
+import { Score } from "./scores/model/entities/score.entity";
+import { Type } from "./types/model/entities/type.entity";
 
 
 @Module({
@@ -35,14 +35,16 @@ import {Type} from "./types/model/entities/type.entity";
     username: 'root',
     password: '',
     database: 'jeux',
-    entities: [User,Avatar,Difficulte,Jeux,Listeamis,Partie,Partieuser,Reglesjeux,Score,Type],
+    entities: [User, Avatar, Difficulte, Jeux, Listeamis, Partie, Partieuser, Reglesjeux, Score, Type],
     synchronize: true,
-    autoLoadEntities:true,
+    autoLoadEntities: true,
+
+
   }), UsersModule, AvatarsModule, DifficulteModule, JeuxModule, ListeamisModule, PartiesModule, PartieusersModule, ReglesjeuxModule, ScoresModule, TypesModule,
   ],
   controllers: [AppController],
   providers: [AppService],
 })
 export class AppModule {
-  constructor(private connection: Connection) {}
+  constructor(private connection: Connection) { }
 }
