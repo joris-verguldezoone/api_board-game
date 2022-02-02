@@ -8,24 +8,32 @@ import { User } from "../model/entities/user.entity";
 @Injectable()
 export class UsersService {
   constructor(
-    @InjectRepository(User) private readonly userRepository: Repository<UserInterface>
+    @InjectRepository(User) private readonly userRepository: Repository<User>
   ) { }
 
   create(user: UserInterface): Observable<UserInterface> {
     return from(this.userRepository.save(user));
   }
 
-  findAll(): Observable<UserInterface[]> {
-    return from(this.userRepository.find());
+  findAll(): Promise<User[]> {
+    return this.userRepository.find();
   }
 
-  findOne(id: number) {
-    return from(this.userRepository.findOne({ id }));
+  findOne(id: number): Promise<User>{
+    return this.userRepository.findOne({ id });
   }
 
-  findOneName(username: string) {
-    return from(this.userRepository.findOne({ username })); // function joris 
+  findOneName(username: string): Promise<User> {
+    return this.userRepository.findOne({ username }); // function joris
   }
+
+  // findByUsername(username: string): Observable<UserInterface> {
+  //   return from(this.userRepository.findOne({
+  //       where: {
+  //         username: username,
+  //     }
+  //   }));
+  // }
 
   update(id: number, user: UserInterface): Observable<any> {
     return from(this.userRepository.update(id, user));
